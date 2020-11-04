@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pizarra">
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pantalla"
+        android:maxLength="12"
+        android:text=""
+        android:textAlignment="textEnd"
+        android:textColor="@color/digitos"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toTopOf="@id/txtIntroducido"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/txtIntroducido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@color/pantalla"
+        android:maxLength="12"
+        android:text=""
+        android:textAlignment="textEnd"
+        android:textColor="@color/digitos"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toTopOf="@id/btnPi"
+        app:layout_constraintStart_toStartOf="parent"></TextView>
+
+    <Button
+        android:id="@+id/btnPi"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="π"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnAns"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="ANS"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn8"
+        app:layout_constraintLeft_toRightOf="@id/btnPi">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnDel"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="DEL"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn9"
+        app:layout_constraintLeft_toRightOf="@id/btnAns">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnAc"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="AC"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnDiv"
+        app:layout_constraintLeft_toRightOf="@id/btnDel">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="7"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn4"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="8"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn5"
+        app:layout_constraintLeft_toRightOf="@id/btn7" />
+
+    <Button
+        android:id="@+id/btn9"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="9"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn6"
+        app:layout_constraintLeft_toRightOf="@id/btn8" />
+
+    <Button
+        android:id="@+id/btnDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="/"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnMul"
+        app:layout_constraintLeft_toRightOf="@id/btn9" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="5"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn2"
+        app:layout_constraintLeft_toRightOf="@id/btn4" />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="6"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn3"
+        app:layout_constraintLeft_toRightOf="@id/btn5" />
+
+    <Button
+        android:id="@+id/btnMul"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="x"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnRes"
+        app:layout_constraintLeft_toRightOf="@id/btn6" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="1"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnPunto"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="2"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn0"
+        app:layout_constraintLeft_toRightOf="@id/btn1" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="3"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnIgual"
+        app:layout_constraintLeft_toRightOf="@id/btn2" />
+
+    <Button
+        android:id="@+id/btnRes"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="-"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnSum"
+        app:layout_constraintLeft_toRightOf="@id/btn3" />
+
+    <Button
+        android:id="@+id/btnPunto"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/huesoBtn"
+        android:text=","
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn0"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="0"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnPunto" />
+
+    <Button
+        android:id="@+id/btnIgual"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/huesoBtn"
+        android:text="="
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn0" />
+
+    <Button
+        android:id="@+id/btnSum"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/rojizoBtn"
+        android:text="+"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnIgual" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

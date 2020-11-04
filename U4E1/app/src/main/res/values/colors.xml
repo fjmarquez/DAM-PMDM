@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#31343b</color>
+    <color name="colorPrimaryDark">#31343b</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="rojizoBtn">#9D5F79</color>
+    <color name="pizarra">#31343b</color>
+    <color name="huesoBtn">#70707A</color>
+    <color name="pantalla">#7A8A7F</color>
+    <color name="digitos">#000000</color>
+</resources>
