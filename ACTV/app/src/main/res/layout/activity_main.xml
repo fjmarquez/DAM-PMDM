@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
-    <TextView
-        android:id="@+id/selection"
-        android:layout_width="fill_parent"
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/actvNba"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-    <AutoCompleteTextView android:id="@+id/edit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:completionThreshold="3"/>
+        android:completionThreshold="1"
+        android:hint="Search...">
+
+    </androidx.appcompat.widget.AppCompatAutoCompleteTextView>
+
 
 </LinearLayout>

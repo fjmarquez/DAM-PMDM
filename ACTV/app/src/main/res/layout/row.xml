@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="4dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgTeam"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        tools:src="@drawable/atlanta">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNameTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="prueba"
+        android:textSize="21dp"
+        android:paddingStart="4dp"
+        android:layout_gravity="center_vertical">
+
+    </androidx.appcompat.widget.AppCompatTextView>
+
+</LinearLayout>
