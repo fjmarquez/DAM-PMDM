@@ -39,6 +39,7 @@ public class TeamAdapter extends ArrayAdapter<Team> {
         TextView tvTeam = convertView.findViewById(R.id.tvNameTeam);
 
         Team t = getItem(position);
+
         if (t != null){
             imgTeam.setImageResource(t.getImgTeam());
             tvTeam.setText(t.getNameTeam());
