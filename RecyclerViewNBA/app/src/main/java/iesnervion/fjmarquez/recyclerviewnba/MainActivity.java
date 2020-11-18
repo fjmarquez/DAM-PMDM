@@ -1,21 +1,19 @@
-package iesnervion.fjmarquez.spinnernba;
+package iesnervion.fjmarquez.recyclerviewnba;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Team> teamArrayList;
-    private TeamAdapter teamAdapter;
-    private Spinner spinnerNBA;
-
+    private RecyclerView rvTeams;
+    private RecyclerView.Adapter rvTeamsAdapter;
+    private RecyclerView.LayoutManager rvTeamsLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,32 +22,18 @@ public class MainActivity extends AppCompatActivity {
 
         initList();
 
-        spinnerNBA = findViewById(R.id.spinnerTeams);
-
-        teamAdapter = new TeamAdapter(this, teamArrayList);
-        spinnerNBA.setAdapter(teamAdapter);
-
-        spinnerNBA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Team clickedTeam = (Team)parent.getItemAtPosition(position);
-                String clickedTeamName = clickedTeam.getNameTeam();
-                Toast.makeText(MainActivity.this, "You clicked " + clickedTeamName, Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        rvTeams = findViewById(R.id.rvTeams);
+        rvTeams.setHasFixedSize(true);
+        rvTeamsLayoutManager = new LinearLayoutManager(this);
+        rvTeamsAdapter = new RVTeamsAdapter(teamArrayList);
+        rvTeams.setLayoutManager(rvTeamsLayoutManager);
+        rvTeams.setAdapter(rvTeamsAdapter);
 
 
     }
 
     private void initList(){
         teamArrayList = new ArrayList<>();
-        teamArrayList.add(new Team("Selecciona un equipo", 0));
         teamArrayList.add(new Team("Atlanta Hawks", R.drawable.atlanta));
         teamArrayList.add(new Team("Boston Celtics", R.drawable.boston));
         teamArrayList.add(new Team("Milwaukee Bucks", R.drawable.bucks));
