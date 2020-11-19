@@ -29,13 +29,7 @@ public class TeamAdapter extends ArrayAdapter<Team> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        /*TextView tv = convertView.findViewById(R.id.tvNameTeam);
-        if (position == 0) {
-            // Set the hint text color gray
-            tv.setTextColor(Color.GRAY);
-        }else {
-            tv.setTextColor(Color.BLACK);
-        }*/
+
         return initView(position, convertView, parent);
     }
 
@@ -51,24 +45,50 @@ public class TeamAdapter extends ArrayAdapter<Team> {
     }
 
     private View initView(int position, View convertView, ViewGroup parent) {
+        ViewHolder mViewHolder = new ViewHolder();
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_row, parent, false);
         }else {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_row2, parent, false);
         }
-        ImageView imgTeam = convertView.findViewById(R.id.imgTeam);
-        TextView tvTeam = convertView.findViewById(R.id.tvNameTeam);
+        mViewHolder.imgEquipo = (ImageView) convertView.findViewById(R.id.imgTeam);
+        mViewHolder.txtEquipo = (TextView) convertView.findViewById(R.id.tvNameTeam);
+        convertView.setTag(mViewHolder);
 
         Team t = getItem(position);
 
+        if (position == 0) {
+            // Set the hint text color gray
+            mViewHolder.txtEquipo.setTextColor(Color.LTGRAY);
+        }else {
+            mViewHolder.txtEquipo.setTextColor(Color.BLACK);
+        }
+
         if (t != null){
-            imgTeam.setImageResource(t.getImgTeam());
-            tvTeam.setText(t.getNameTeam());
+            mViewHolder.imgEquipo.setImageResource(t.getImgTeam());
+            mViewHolder.txtEquipo.setText(t.getNameTeam());
+
         }
 
 
         return convertView;
     }
 
+    static class ViewHolder {
+        ImageView imgEquipo;
+        TextView txtEquipo;
+        int pos;
 
+        public ImageView getImgEquipo() {
+            return imgEquipo;
+        }
+
+        public TextView getTxtEquipo() {
+            return txtEquipo;
+        }
+    }
 }
+
+
+
+

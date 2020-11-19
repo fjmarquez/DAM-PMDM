@@ -15,14 +15,16 @@ public class Adaptador extends BaseAdapter {
     Context contexto;
     String[] datos;
     int[] datosImg;
+    int pos;
 
-    public Adaptador(Context conexto, String[] datos, int[] imagenes)
+    public Adaptador(Context contexto, String[] datos, int[] imagenes)
     {
-        this.contexto = conexto;
+        this.contexto = contexto;
         this.datos = datos;
         this.datosImg = imagenes;
 
-        inflater = (LayoutInflater)conexto.getSystemService(conexto.LAYOUT_INFLATER_SERVICE);
+
+        inflater = (LayoutInflater)contexto.getSystemService(contexto.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -31,7 +33,7 @@ public class Adaptador extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public String getItem(int position) {
         return null;
     }
 
@@ -41,17 +43,70 @@ public class Adaptador extends BaseAdapter {
     }
 
     @Override
+    public int getItemViewType(int position) {
+
+        if (position % 2 == 0) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    @Override
     public View getView(int i, View convertView, ViewGroup parent) {
-        final View vista = inflater.inflate(R.layout.row, null);
+        ViewHolder mViewHolder = new ViewHolder();
+        int type = getItemViewType(i);
+        if (type == 0) {
+            if (convertView == null) {
+                LayoutInflater mInflater = (LayoutInflater) contexto.
+                        getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.row, parent, false);
 
-        TextView equipo = (TextView) vista.findViewById(R.id.txtEquipo);
 
-        ImageView imagen = (ImageView) vista.findViewById(R.id.imgEquipo);
+                mViewHolder.imgEquipo = (ImageView) convertView.findViewById(R.id.imgEquipo);
+                mViewHolder.txtEquipo = (TextView) convertView.findViewById(R.id.txtEquipo);
+                convertView.setTag(mViewHolder);
+            } else {
+                mViewHolder = (ViewHolder) convertView.getTag();
+            }
+        }else {
+            if (convertView == null) {
+                LayoutInflater mInflater = (LayoutInflater) contexto.
+                        getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.row2, parent, false);
 
-        equipo.setText(datos[i]);
-        imagen.setImageResource(datosImg[i]);
-        imagen.setTag(i);
 
-        return vista;
+                mViewHolder.imgEquipo = (ImageView) convertView.findViewById(R.id.imgEquipo);
+                mViewHolder.txtEquipo = (TextView) convertView.findViewById(R.id.txtEquipo);
+                convertView.setTag(mViewHolder);
+            } else {
+                mViewHolder = (ViewHolder) convertView.getTag();
+            }
+        }
+        mViewHolder.imgEquipo.setImageResource(datosImg[i]);
+        mViewHolder.txtEquipo.setText(datos[i]);
+
+
+        return convertView;
+    }
+
+    static class ViewHolder {
+        ImageView imgEquipo;
+        TextView txtEquipo;
+        int pos;
+
+        public ImageView getImgEquipo() {
+            return imgEquipo;
+        }
+
+        public TextView getTxtEquipo() {
+            return txtEquipo;
+        }
     }
 }
