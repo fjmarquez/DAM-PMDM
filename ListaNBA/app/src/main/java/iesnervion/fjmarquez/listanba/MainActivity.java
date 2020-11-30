@@ -2,12 +2,8 @@ package iesnervion.fjmarquez.listanba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,22 +32,5 @@ public class MainActivity extends AppCompatActivity {
         listaEquipos = findViewById(R.id.listaEquipo);
 
         listaEquipos.setAdapter(new Adaptador(this, equiposNBA, imgEquiposNBA));
-
-
-        listaEquipos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String equipo = equiposNBA[position];
-                int img = imgEquiposNBA[position];
-
-                Intent i = new Intent(MainActivity.this, TeamDetails.class);
-                i.putExtra("IMG", img);
-                i.putExtra("TEAM", equipo);
-                startActivity(i);
-
-                //Toast.makeText(MainActivity.this, "item click " + equiposNBA[position], Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
