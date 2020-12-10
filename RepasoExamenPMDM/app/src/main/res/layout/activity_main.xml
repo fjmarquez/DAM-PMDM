@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/radioButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rGroupGeneros"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbTodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todos"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbRock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rock"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbPop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pop"></RadioButton>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbFavoritos"
+        android:text="Favoritos"
+        android:layout_below="@id/radioButtons"></CheckBox>
+
+    <EditText
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cbFavoritos">
+
+    </EditText>
+
+    <ListView
+        android:id="@+id/rvCanciones"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/filter">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerButton"
+        android:orientation="horizontal"
+        android:layout_below="@id/rvCanciones">
+
+        <Spinner
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerCanciones">
+
+        </Spinner>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDetalles"
+            android:text="Detalles">
+
+        </Button>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
