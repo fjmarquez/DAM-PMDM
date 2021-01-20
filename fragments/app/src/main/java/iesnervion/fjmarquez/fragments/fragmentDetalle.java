@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link detalle#newInstance} factory method to
+ * Use the {@link fragmentDetalle#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class detalle extends Fragment {
+public class fragmentDetalle extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class detalle extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public detalle() {
+    public fragmentDetalle() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class detalle extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment detalle.
+     * @return A new instance of fragment fragmentDetalle.
      */
     // TODO: Rename and change types and number of parameters
-    public static detalle newInstance(String param1, String param2) {
-        detalle fragment = new detalle();
+    public static fragmentDetalle newInstance(String param1, String param2) {
+        fragmentDetalle fragment = new fragmentDetalle();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
