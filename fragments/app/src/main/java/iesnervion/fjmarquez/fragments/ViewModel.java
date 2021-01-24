@@ -4,14 +4,18 @@ import androidx.lifecycle.MutableLiveData;
 
 public class ViewModel extends androidx.lifecycle.ViewModel {
 
-    private MutableLiveData<String> textoFragmentDetalle = new MutableLiveData<String>();;
+    private MutableLiveData<Integer> btnSelecionado = new MutableLiveData<Integer>();;
 
 
-    public MutableLiveData<String> getTextoFragmentDetalle() {
-        return textoFragmentDetalle;
+    public MutableLiveData<Integer> getBtnSelecionado() {
+        return btnSelecionado;
     }
 
-    public void setTextoFragmentDetalle(String textoFragmentDetalle) {
-        this.textoFragmentDetalle.setValue(textoFragmentDetalle);
+    public void setBtnSelecionado(Integer btnSelecionado) {
+        this.btnSelecionado.setValue(btnSelecionado);
+    }
+
+    public ViewModel(){
+        this.btnSelecionado.setValue(0);
     }
 }

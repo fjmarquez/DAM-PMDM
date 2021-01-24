@@ -2,11 +2,15 @@ package iesnervion.fjmarquez.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,27 @@ public class fragmentDetalle extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ViewModel vm;
+
+    private TextView txtDetalle;
+
+    final Observer<Integer> btnObserver = new Observer<Integer>() {
+        @Override
+        public void onChanged(Integer integer) {
+
+            if(vm.getBtnSelecionado().getValue().intValue() == 1){
+
+                txtDetalle.setText("Boton 1 pulsado");
+
+            }else if(vm.getBtnSelecionado().getValue().intValue() ==2){
+
+                txtDetalle.setText("Boton 2 pulsado");
+
+            }
+
+        }
+    };
 
     public fragmentDetalle() {
         // Required empty public constructor
@@ -49,6 +74,9 @@ public class fragmentDetalle extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,7 +86,24 @@ public class fragmentDetalle extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_detalle, container, false);
+
+        txtDetalle = (TextView) v.findViewById(R.id.txtDetalle);
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalle, container, false);
+        return v;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        vm = new ViewModelProvider(getActivity()).get(ViewModel.class);
+
+        vm.getBtnSelecionado().observe(getActivity(), btnObserver);
+
     }
 }

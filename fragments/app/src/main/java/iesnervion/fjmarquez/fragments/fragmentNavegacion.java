@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +57,7 @@ public class fragmentNavegacion extends Fragment implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        vm = new ViewModelProvider(this).get(ViewModel.class);
+        vm = new ViewModelProvider(getActivity()).get(ViewModel.class);
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -84,10 +83,10 @@ public class fragmentNavegacion extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn1:
-                vm.setTextoFragmentDetalle(getString(R.string.Texto1));
+                vm.setBtnSelecionado(1);
                 break;
             case R.id.btn2:
-                vm.setTextoFragmentDetalle(getString(R.string.Texto2));
+                vm.setBtnSelecionado(2);
                 break;
         }
 
