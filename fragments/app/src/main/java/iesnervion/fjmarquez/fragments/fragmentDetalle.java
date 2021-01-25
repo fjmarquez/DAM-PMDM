@@ -28,7 +28,7 @@ public class fragmentDetalle extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ViewModel vm;
+    private MyViewModel vm;
 
     private TextView txtDetalle;
 
@@ -40,7 +40,7 @@ public class fragmentDetalle extends Fragment {
 
                 txtDetalle.setText("Boton 1 pulsado");
 
-            }else if(vm.getBtnSelecionado().getValue().intValue() ==2){
+            }else if(vm.getBtnSelecionado().getValue().intValue() == 2){
 
                 txtDetalle.setText("Boton 2 pulsado");
 
@@ -101,9 +101,11 @@ public class fragmentDetalle extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        vm = new ViewModelProvider(getActivity()).get(ViewModel.class);
+        vm = new ViewModelProvider(getActivity()).get(MyViewModel.class);
 
-        vm.getBtnSelecionado().observe(getActivity(), btnObserver);
+        vm.getBtnSelecionado().observe(getViewLifecycleOwner(), btnObserver);
 
     }
+
+
 }

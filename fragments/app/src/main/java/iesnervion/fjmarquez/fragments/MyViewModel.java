@@ -2,7 +2,7 @@ package iesnervion.fjmarquez.fragments;
 
 import androidx.lifecycle.MutableLiveData;
 
-public class ViewModel extends androidx.lifecycle.ViewModel {
+public class MyViewModel extends androidx.lifecycle.ViewModel {
 
     private MutableLiveData<Integer> btnSelecionado = new MutableLiveData<Integer>();;
 
@@ -15,7 +15,7 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
         this.btnSelecionado.setValue(btnSelecionado);
     }
 
-    public ViewModel(){
+    public MyViewModel(){
         this.btnSelecionado.setValue(0);
     }
 }

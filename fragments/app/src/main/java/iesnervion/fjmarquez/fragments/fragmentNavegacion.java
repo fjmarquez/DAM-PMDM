@@ -29,7 +29,7 @@ public class fragmentNavegacion extends Fragment implements View.OnClickListener
     private Button btn1;
     private Button btn2;
 
-    private ViewModel vm;
+    private MyViewModel vm;
 
     public fragmentNavegacion() {
         // Required empty public constructor
@@ -57,7 +57,7 @@ public class fragmentNavegacion extends Fragment implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        vm = new ViewModelProvider(getActivity()).get(ViewModel.class);
+        vm = new ViewModelProvider(getActivity()).get(MyViewModel.class);
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);

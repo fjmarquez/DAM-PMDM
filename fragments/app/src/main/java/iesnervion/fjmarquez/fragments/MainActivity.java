@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity{
 
-    private ViewModel vm;
+    private MyViewModel vm;
     final fragmentNavegacion fNav = new fragmentNavegacion();
     final fragmentDetalle fDet = new fragmentDetalle();
     private boolean smallScreen;
@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity{
 
             if (smallScreen == true && vm.getBtnSelecionado().getValue().intValue() != 0){
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.contenedorGeneral, fDet).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).replace(R.id.contenedorGeneral, fDet).addToBackStack(null).commit();
 
             }else if(smallScreen != true && vm.getBtnSelecionado().getValue().intValue() != 0){
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentCDetalle, fDet).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).replace(R.id.fragmentCDetalle, fDet).addToBackStack(null).commit();
 
             }
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vm = new ViewModelProvider(this).get(ViewModel.class);
+        vm = new ViewModelProvider(this).get(MyViewModel.class);
 
         vm.getBtnSelecionado().observe(this, btnObserver);
 
