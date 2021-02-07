@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CRUD Fragments</string>
+
+    <string name="btnNuevo">Nuevo</string>
+    <string name="btnLista">Lista</string>
+    <string name="btnBorrar">Borrar</string>
+    <string name="tvNombre">Nombre: </string>
+    <string name="etNombre">Nombre nuevo equipo </string>
+    <string name="btnNuevoEquipo">Crear nuevo equipo</string>
+    <string name="btnEditarEquipo">Editar equipo</string>
+
+</resources>
