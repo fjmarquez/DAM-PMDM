@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import iesnervion.fjmarquez.crudfragments.Entities.Equipo;
 import iesnervion.fjmarquez.crudfragments.R;
 import iesnervion.fjmarquez.crudfragments.ViewModels.VMGeneral;
@@ -76,15 +78,18 @@ public class FragmentBorrar extends Fragment implements View.OnClickListener{
             case R.id.btnBorrarEquipo:
                 try {
                     String editTextNumero = mETPositionBorrarEquipo.getText().toString();
-                    Integer positionBorrar = Integer.parseInt(editTextNumero);
+                    int positionBorrar = Integer.parseInt(editTextNumero);
+
                     Equipo equipo = mViewModel.getListaEquipos().getValue().get(positionBorrar);
-                    mViewModel.getListaEquipos().getValue().remove(equipo);
+                    //mViewModel.getListaEquipos().getValue().remove(equipo);
+
+                    ArrayList<Equipo> listaAux = mViewModel.getListaEquipos().getValue();
+                    listaAux.remove(positionBorrar);
+
                     getActivity().onBackPressed();
                 } catch(NumberFormatException nfe) {
                     Toast.makeText(getActivity(), "Could not parse " + nfe, Toast.LENGTH_SHORT).show();
                 }
-
-
         }
     }
 }
