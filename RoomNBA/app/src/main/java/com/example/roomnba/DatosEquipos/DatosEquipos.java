@@ -7,10 +7,14 @@ import java.util.ArrayList;
 
 public class DatosEquipos {
 
-    private static ArrayList<Equipo> listadoEquipos;
-
     public DatosEquipos(){
+
+    }
+
+    public static ArrayList<Equipo> getListadoEquipos() {
+
         //Datos para crear equipos
+        ArrayList<Equipo> listadoEquipos = new ArrayList<Equipo>();
         String[] equiposNBA = {"Atlanta Hawks", "Boston Celtics", "Brooklyn Nets"};
         int[] imgEquiposNBA = {R.drawable.atlanta, R.drawable.boston, R.drawable.nets};
 
@@ -20,9 +24,6 @@ public class DatosEquipos {
 
         }
 
-    }
-
-    public static ArrayList<Equipo> getListadoEquipos() {
         return listadoEquipos;
     }
 

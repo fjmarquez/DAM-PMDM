@@ -51,10 +51,10 @@ public interface EquipoDAO {
 
     //QUERYS
 
-    @Query("SELECT id, nombreEquipo, imgEquipo from Equipo")
+    @Query("SELECT * from equipos")
     public List<Equipo> getListEquipos();
 
-    @Query("SELECT id, nombreEquipo, imgEquipo FROM Equipo WHERE id = :id")
+    @Query("SELECT id, nombreEquipo, imgEquipo FROM equipos WHERE id = :id")
     public Equipo getEquipoId(int id);
 
 

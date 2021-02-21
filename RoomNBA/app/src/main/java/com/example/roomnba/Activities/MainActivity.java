@@ -27,24 +27,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ArrayList<Equipo> listado = DatosEquipos.getListadoEquipos();
 
 
-        RoomDatabase.Callback dbCallback = new RoomDatabase.Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(db);
 
-                Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        DatabaseEquipos.getDatabase(getApplicationContext()).equipoDAO().insertArrayEquipo(DatosEquipos.getListadoEquipos());
-                    }
-                });
-
-            }
-        };
-
-        ArrayList<Equipo> listaPrueba = (ArrayList<Equipo>) equipoDAO.getListEquipos() ;
+        ArrayList<Equipo> listaPrueba = (ArrayList<Equipo>) DatabaseEquipos.getDatabase(this.getApplicationContext()).equipoDAO().getListEquipos() ;
 
     }
 }
