@@ -2,5 +2,8 @@
     <string name="app_name">RoomNBA</string>
     <string name="btnNuevo">Nuevo</string>
     <string name="btnLista">Listado</string>
+    <string name="tvNombre">Nombre: </string>
+    <string name="etNombre">Nombre...</string>
+    <string name="btnNuevoEquipo">Añadir Equipo</string>
 
 </resources>
