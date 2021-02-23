@@ -15,8 +15,8 @@ public class DatosEquipos {
 
         //Datos para crear equipos
         ArrayList<Equipo> listadoEquipos = new ArrayList<Equipo>();
-        String[] equiposNBA = {"Atlanta Hawks", "Boston Celtics", "Brooklyn Nets"};
-        int[] imgEquiposNBA = {R.drawable.atlanta, R.drawable.boston, R.drawable.nets};
+        String[] equiposNBA = {"Atlanta Hawks", "Boston Celtics", "Brooklyn Nets", "LA Lakers", "LA Clippers", "Miami Heat"};
+        int[] imgEquiposNBA = {R.drawable.atlanta, R.drawable.boston, R.drawable.nets, R.drawable.lakers, R.drawable.clippers, R.drawable.miami};
 
         for(int i = 0; i < equiposNBA.length; i++){
 

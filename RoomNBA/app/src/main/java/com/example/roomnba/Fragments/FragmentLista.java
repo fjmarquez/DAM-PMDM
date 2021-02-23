@@ -3,12 +3,17 @@ package com.example.roomnba.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.roomnba.Adaptadores.EquipoAdapter;
 import com.example.roomnba.R;
+import com.example.roomnba.Viewmodels.VMGeneral;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +30,12 @@ public class FragmentLista extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    //Atributos
+    private RecyclerView rvEquipos;
+    private EquipoAdapter rvAdapter;
+    private RecyclerView.LayoutManager rvLayoutManager;
+    private VMGeneral mViewModel;
 
     public FragmentLista() {
         // Required empty public constructor
@@ -55,12 +66,34 @@ public class FragmentLista extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        mViewModel = new ViewModelProvider(getActivity()).get(VMGeneral.class);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista, container, false);
+        View v = inflater.inflate(R.layout.fragment_lista, container, false);
+
+        rvEquipos = (RecyclerView) v.findViewById(R.id.rvEquipos);
+        rvEquipos.setHasFixedSize(true);
+        rvLayoutManager = new LinearLayoutManager(getActivity());
+        rvAdapter = new EquipoAdapter(mViewModel.getListaEquipos().getValue());
+        rvAdapter.setOnItemClickListener(new EquipoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                FragmentEditar mFragmentEditar = new FragmentEditar();
+                Bundle bundleEditar = new Bundle();
+                bundleEditar.putInt("item", position);
+                mFragmentEditar.setArguments(bundleEditar);
+                getParentFragmentManager().beginTransaction().replace(R.id.contenedorGeneral, mFragmentEditar).addToBackStack(null).commit();
+
+            }
+        });
+        rvEquipos.setLayoutManager(rvLayoutManager);
+        rvEquipos.setAdapter(rvAdapter);
+
+        return v;
     }
 }
