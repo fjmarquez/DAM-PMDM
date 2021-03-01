@@ -7,5 +7,6 @@
     <string name="btnNuevoEquipo">Añadir Equipo</string>
     <string name="btnEditarEquipo">Guardar cambios</string>
     <string name="btnBorrarEquipo">Borrar equipo</string>
+    <string name="tvEstadio">Estadio: </string>
 
 </resources>

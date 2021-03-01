@@ -1,15 +1,15 @@
 package com.example.roomnba.DAO;
 
-import android.media.audiofx.DynamicsProcessing;
-
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.example.roomnba.Entities.Equipo;
+import com.example.roomnba.Entities.Relations.EquipoEstadio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +51,22 @@ public interface EquipoDAO {
 
     //QUERYS
 
-    @Query("SELECT * from equipos")
+    @Query("SELECT * FROM equipos")
     public List<Equipo> getListEquipos();
 
-    @Query("SELECT id, nombreEquipo, imgEquipo FROM equipos WHERE id = :id")
+    @Query("SELECT * FROM equipos WHERE idEquipo = :id")
     public Equipo getEquipoId(int id);
+
+    @Transaction
+    @Query("SELECT * FROM estadios WHERE id = :idEstadio")
+    public EquipoEstadio getEquipoEstadio(int idEstadio);
+
+    /*@Transaction
+    @Query("SELECT * FROM jugadores WHERE idEquipoJugador = :idEquipo")
+    public List<Jugador> getJugadoresEquipo(int idEquipo);*/
+
+
+
 
 
 }

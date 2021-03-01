@@ -90,7 +90,7 @@ public class FragmentNuevo extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.btnNuevoEquipo:
                 String nombreEquipoNuevo = mETNombreNuevoEquipo.getText().toString();
-                mViewModel.anadirEquipoListaEquipos(new Equipo(nombreEquipoNuevo, R.drawable.nba));
+                mViewModel.anadirEquipoListaEquipos(new Equipo(nombreEquipoNuevo, R.drawable.nba, 1));
                 getActivity().onBackPressed();
                 break;
         }

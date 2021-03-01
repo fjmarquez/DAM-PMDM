@@ -34,7 +34,7 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.RVEquiposV
     @NonNull
     @Override
     public RVEquiposViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerviewrow, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerviewequipos, parent, false);
         RVEquiposViewHolder vh = new RVEquiposViewHolder(v, mListener);
         return vh;
     }

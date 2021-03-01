@@ -9,16 +9,20 @@ public class Equipo {
 
     //Atributos
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo (name="idEquipo")
     private Integer id;
     @ColumnInfo (name="nombreEquipo")
     private String nombreEquipo;
     @ColumnInfo (name="imgEquipo")
     private int imgEquipo;
+    @ColumnInfo (name = "idEstadio")
+    private int estadio;
 
     //Constructor
-    public Equipo (String nombreEquipo, int imgEquipo){
+    public Equipo (String nombreEquipo, int imgEquipo, int estadio){
         this.nombreEquipo = nombreEquipo;
         this.imgEquipo = imgEquipo;
+        this.estadio = estadio;
     }
 
     //Getters
@@ -46,4 +50,13 @@ public class Equipo {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public int getEstadio() {
+        return estadio;
+    }
+
+    public void setEstadio(int estadio) {
+        this.estadio = estadio;
+    }
+
 }

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +13,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.roomnba.Adaptadores.JugadoresAdapter;
+import com.example.roomnba.Database.DatabaseEquipos;
+import com.example.roomnba.Datos.DatosPatrocinadores;
 import com.example.roomnba.Entities.Equipo;
+import com.example.roomnba.Entities.Estadio;
+import com.example.roomnba.Entities.Jugador;
+import com.example.roomnba.Entities.Patrocinador;
+import com.example.roomnba.Entities.Relations.EquipoJugadores;
+import com.example.roomnba.Entities.Relations.EquipoPatrocinadores;
 import com.example.roomnba.R;
 import com.example.roomnba.Viewmodels.VMGeneral;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +47,9 @@ public class FragmentEditar extends Fragment implements View.OnClickListener {
     private String mParam2;
 
     private EditText mETNombreEquipo;
+    private TextView mTVNombreEstadio;
+    private TextView mTVCapacidadEstadio;
+    private TextView mTVLocalizacionEstadio;
     private ImageView mIVEquipo;
     private Button mBtnEditar;
     private Button mBtnBorrar;
@@ -40,6 +57,10 @@ public class FragmentEditar extends Fragment implements View.OnClickListener {
     private Bundle bundleEditar;
     private int itemPosition;
     private Equipo mEquipoEditar;
+    private Estadio mEstadioEditar;
+    private RecyclerView rvJugadores;
+    private JugadoresAdapter rvAdapter;
+    private RecyclerView.LayoutManager rvLayoutManager;
 
     public FragmentEditar() {
         // Required empty public constructor
@@ -84,6 +105,20 @@ public class FragmentEditar extends Fragment implements View.OnClickListener {
         bundleEditar = this.getArguments();
         itemPosition = bundleEditar.getInt("item");
         mEquipoEditar = mViewModel.getListaEquipos().getValue().get(itemPosition);
+        mEstadioEditar = mViewModel.getEquipoEstadio(mEquipoEditar).estadio;
+
+        ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>(mViewModel.getJugadoresEquipo(mEquipoEditar).jugadores);
+
+        List<EquipoPatrocinadores> listadoEquiposPatrocinadores = mViewModel.getEquipoPatrocinadores();
+
+        //List<Patrocinador> patrocinadores = DatabaseEquipos.getDatabase(getContext().getApplicationContext()).patrocinadorDAO().getEquipoPatrocinadores();
+        
+        rvJugadores = (RecyclerView) v.findViewById(R.id.rvJugadores);
+        rvJugadores.setHasFixedSize(true);
+        rvLayoutManager = new LinearLayoutManager(getActivity());
+        rvAdapter = new JugadoresAdapter(listaJugadores);
+        rvJugadores.setLayoutManager(rvLayoutManager);
+        rvJugadores.setAdapter(rvAdapter);
 
         init(v);
 
@@ -100,6 +135,12 @@ public class FragmentEditar extends Fragment implements View.OnClickListener {
         mBtnBorrar.setOnClickListener(this);
         mETNombreEquipo.setText(""+mEquipoEditar.getNombreEquipo());
         mIVEquipo.setImageResource(mEquipoEditar.getImgEquipo());
+        mTVNombreEstadio = (TextView) v.findViewById(R.id.tvNombreEstadioNombre);
+        mTVNombreEstadio.setText(mEstadioEditar.getNombre());
+        mTVCapacidadEstadio = (TextView) v.findViewById(R.id.tvNombreEstadioCapacidad);
+        mTVCapacidadEstadio.setText(""+mEstadioEditar.getCapacidad());
+        mTVLocalizacionEstadio = (TextView) v.findViewById(R.id.tvNombreLocalizacion);
+        mTVLocalizacionEstadio.setText(mEstadioEditar.getLocalizacion());
 
     }
 

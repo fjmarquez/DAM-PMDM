@@ -7,8 +7,14 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.roomnba.Database.DatabaseEquipos;
 import com.example.roomnba.Entities.Equipo;
+import com.example.roomnba.Entities.Jugador;
+import com.example.roomnba.Entities.Patrocinador;
+import com.example.roomnba.Entities.Relations.EquipoEstadio;
+import com.example.roomnba.Entities.Relations.EquipoJugadores;
+import com.example.roomnba.Entities.Relations.EquipoPatrocinadores;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VMGeneral extends androidx.lifecycle.AndroidViewModel {
 
@@ -41,6 +47,18 @@ public class VMGeneral extends androidx.lifecycle.AndroidViewModel {
 
     public void eliminarEquipoListaEquipos(Equipo equipo){
         DatabaseEquipos.getDatabase(getApplication().getApplicationContext()).equipoDAO().deleteEquipo(equipo);
+    }
+
+    public EquipoEstadio getEquipoEstadio(Equipo equipo){
+        return DatabaseEquipos.getDatabase(getApplication().getApplicationContext()).equipoDAO().getEquipoEstadio(equipo.getEstadio());
+    }
+
+    public EquipoJugadores getJugadoresEquipo(Equipo equipo){
+        return DatabaseEquipos.getDatabase(getApplication().getApplicationContext()).jugadorDAO().getJugadoresEquipos(equipo.getId());
+    }
+
+    public List<EquipoPatrocinadores> getEquipoPatrocinadores(){
+        return DatabaseEquipos.getDatabase(getApplication().getApplicationContext()).patrocinadorDAO().getlistadoEquipoPatrocinadores();
     }
 
     //Constructor

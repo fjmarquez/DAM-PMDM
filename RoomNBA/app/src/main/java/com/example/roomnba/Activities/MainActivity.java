@@ -1,11 +1,8 @@
 package com.example.roomnba.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,21 +10,12 @@ import android.widget.Button;
 
 import com.example.roomnba.DAO.EquipoDAO;
 import com.example.roomnba.Database.DatabaseEquipos;
-import com.example.roomnba.DatosEquipos.DatosEquipos;
-import com.example.roomnba.Entities.Equipo;
 import com.example.roomnba.Fragments.FragmentLista;
 import com.example.roomnba.Fragments.FragmentNuevo;
 import com.example.roomnba.R;
 import com.example.roomnba.Viewmodels.VMGeneral;
 
-import java.util.ArrayList;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private DatabaseEquipos databaseEquipos;
-    private EquipoDAO equipoDAO;
 
     private FragmentNuevo mFragmentNuevo;
     private FragmentLista mFragmentLista;

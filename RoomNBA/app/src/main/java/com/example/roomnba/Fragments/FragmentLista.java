@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.roomnba.Adaptadores.EquipoAdapter;
+import com.example.roomnba.Entities.Equipo;
 import com.example.roomnba.R;
 import com.example.roomnba.Viewmodels.VMGeneral;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,7 +82,8 @@ public class FragmentLista extends Fragment {
         rvEquipos = (RecyclerView) v.findViewById(R.id.rvEquipos);
         rvEquipos.setHasFixedSize(true);
         rvLayoutManager = new LinearLayoutManager(getActivity());
-        rvAdapter = new EquipoAdapter(mViewModel.getListaEquipos().getValue());
+        ArrayList<Equipo> equipos = mViewModel.getListaEquipos().getValue();
+        rvAdapter = new EquipoAdapter(equipos);
         rvAdapter.setOnItemClickListener(new EquipoAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
